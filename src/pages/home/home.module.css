@@ -1,0 +1,166 @@
+
+/**-=-=-=-=-=- BANNER -=-=-=-=-=-*/
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#banner {
+    background-color: var(--fundo-claro);
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#titulo_banner{
+    color: var(--laranja-destaque);
+    font-size: 450%;
+    font-weight: 500;
+    margin-top: 5vh;
+}
+
+#campo_button{
+    margin-top: 2vH;
+
+    width: 80vh;
+    display: flex;
+    justify-content: space-around;
+
+    gap: 5%;
+}
+
+#btn_cardapio {
+    border: none;
+    background-color: var(--vinho);
+    color: var(--laranja-destaque);
+    border-radius: 10px;
+
+    height: 6vh;
+    width: 55%;
+
+    font-size: 1.5rem;
+    font-weight: 400;
+
+}
+
+#btn_atendente {
+    border: none;
+    color: var(--vinho);
+    background-color: var(--laranja-destaque);
+    border-radius: 10px;
+
+    height: 6vh;
+    width: 55%;
+
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+/**-=-=-=-=-=- DESTAQUES -=-=-=-=-=-*/
+
+#destaques{
+    background-color: var(--fundo-escuro);
+    height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#container_destaques {
+    background-color: inherit;
+    height: 70%;
+    width: 70%;
+
+
+    display: flex;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5%;
+}
+
+#conteudo_esq{
+    background-image: url("../../../public/imgs/mais_pedidos.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 50%;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    padding: 4%;
+    box-shadow: inset 0 -150px 100px rgba(0,0,0, 0.40);
+}
+
+#conteudo_dir{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#bacon{
+    background-image: url("../../../public/imgs/muito_bacon.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 47%;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    padding: 4%;
+    box-shadow: inset 0 -150px 100px rgba(0,0,0, 0.40);
+}
+
+#combos{
+    background-image: url("../../../public/imgs/super_combos.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 47%;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    padding: 4%;
+    box-shadow: inset 0 -150px 100px rgba(0,0,0, 0.40);
+}
+
+
+
+.txt_pequeno{
+    color: var(--txt-branco);
+    font-size: 36;
+    font-weight: 400;
+}
+
+.txt_grande{
+    color: var(--txt-branco);
+    font-size: 50;
+    font-weight: 450;
+}
+
+#unidades{
+    height: 70vh;
+    background-color: var(--fundo-escuro);
+    background-image: url(../../../public/imgs/unidade.jpeg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.txt_titulo_unidades {
+    color: var(--txt-branco);
+    font-size: 50;
+    font-weight: 450;
+    margin-bottom: 10px;
+}
+
+.container_unidades{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+

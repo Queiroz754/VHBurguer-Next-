@@ -1,0 +1,13 @@
+#container_card{
+    max-width: 15vw;
+    gap: 0;
+    height: 50vh;
+
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+#txt_titulo_card{
+    background-color:var(--vinho);
+    color: var(--txt-branco);
+}
