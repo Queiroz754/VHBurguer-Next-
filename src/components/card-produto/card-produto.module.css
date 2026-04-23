@@ -1,13 +1,50 @@
 #container_card{
     max-width: 15vw;
     gap: 0;
-    height: 50vh;
+    height: 45vh;
+
+    display: flex;
+    flex-direction: column;
 
     border-radius: 20px;
     overflow: hidden;
+    background-color:var(--vinho);
+    box-shadow: 3px 6px 11px 2px rgba(0,0,0,0.2);
+}
+
+#container_card div {
+    background-color: var(--fundo-claro);
 }
 
 #txt_titulo_card{
-    background-color:var(--vinho);
     color: var(--txt-branco);
+    text-align: center;
+    font-size: 25;
+    font-weight: 500;
+}
+
+
+#txt_descricao{
+    font-size: 13px;
+    margin: 0px;
+    line-height: 1.4;
+    height: 12vh;
+    align-items: center;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+
+    padding: 20px;
+}
+
+#valor {
+    color: var(--laranja-destaque);
+
+
+    text-align: center;
+    font-size: 22px;
+    font-weight: 500;
+    
+    padding: 10px 0 10px 0 ;
 }

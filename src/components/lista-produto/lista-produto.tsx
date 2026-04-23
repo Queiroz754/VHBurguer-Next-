@@ -1,17 +1,31 @@
-import styles from "./lista-produto.modules.css"
+import styles from "./lista-produto.module.css"
 import CardProduto from "../card-produto/card-produto"
+import Link from "next/link";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSliders } from "@fortawesome/free-solid-svg-icons";
 
 const ListaProduto = () => {
-    return(
+    return (
         <>
-            <div>
-                <button>Filtrar</button>
-                <div>
-                    <button>Todas as promoções</button>
-                    <button>Todos os produtos</button>
+            <div id={styles.container_lista}>
+                <div id={styles.campo_button}>
+                    <button id={styles.btn_filtrar}>Filtrar 
+                        <FontAwesomeIcon icon={faSliders} />
+                    </button>
+                    <div>
+                        <Link href="/promocoes" id={styles.btn_promocoes} >Todas as Promoções</Link>
+                        <Link href="/produto" id={styles.btn_produto}>Adicionar Produtos</Link>
+                    </div>
+                </div>
+                <div id={styles.campo_card}>
+                    <CardProduto />
+                    <CardProduto />
+                    <CardProduto />
+                    <CardProduto />
+                    <CardProduto />
+                    <CardProduto />
                 </div>
             </div>
-            <CardProduto/>
         </>
     )
 }

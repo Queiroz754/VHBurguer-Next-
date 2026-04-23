@@ -6,17 +6,21 @@
     justify-content: center;
 }
 
-#banner {
+.banner {
     background-color: var(--fundo-claro);
-    height: 70vh;
+    height: 80vh;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+.banner img {
+    height: 40vh;
+}
+
 #titulo_banner{
     color: var(--laranja-destaque);
-    font-size: 450%;
+    font-size: 400%;
     font-weight: 500;
     margin-top: 5vh;
 }
@@ -40,9 +44,10 @@
     height: 6vh;
     width: 55%;
 
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 400;
 
+    padding: 2.5px;
 }
 
 #btn_atendente {
@@ -54,13 +59,15 @@
     height: 6vh;
     width: 55%;
 
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 400;
+
+    padding: 2.5px;
 }
 
 /**-=-=-=-=-=- DESTAQUES -=-=-=-=-=-*/
 
-#destaques{
+.destaques{
     background-color: var(--fundo-escuro);
     height: 85vh;
     display: flex;
@@ -142,7 +149,11 @@
     font-weight: 450;
 }
 
-#unidades{
+.cardapio{
+    background-color: var(--fundo-claro);
+}
+
+.unidades{
     height: 70vh;
     background-color: var(--fundo-escuro);
     background-image: url(../../../public/imgs/unidade.jpeg);

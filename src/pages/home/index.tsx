@@ -7,7 +7,7 @@ const Home = () => {
         <>
             <Header/>
                 <main id={`${styles.main} layout_guide`}>
-                    <section id={styles.banner}>
+                    <section className={styles.banner} id="banner">
                         <h1 id={styles.titulo_banner}>BEM-VINDO AO VH BURGUER</h1>
                         <img src="../imgs/foto_de_hamburgueres.png" id={styles.img_banner} alt="um hambúrguer, alface, queijo, molho especial, cebola, picles, num pão com gergelim" />
                         <div id={styles.campo_button}>
@@ -15,7 +15,7 @@ const Home = () => {
                             <button id={styles.btn_cardapio}>Ver cardápio</button>
                         </div>
                     </section>
-                    <section id={styles.destaques}>
+                    <section className={styles.destaques} id="destaques">
                         <div id={styles.container_destaques}>
                             <div id={styles.conteudo_esq}>
                                 <p className={styles.txt_pequeno}>Os queridinhos da galera</p>
@@ -33,10 +33,10 @@ const Home = () => {
                             </div>
                         </div>
                     </section>
-                    <section id="cardapio">
+                    <section className={styles.cardapio} id="cardapio">
                         <ListaProduto/>
                     </section>
-                    <section id={styles.unidades}>
+                    <section className={styles.unidades} id="unidades">
                         <div className={styles.container_unidades}>
                             <p className={styles.txt_titulo_unidades}>NOSSAS UNIDADES</p>
                             <p className={styles.txt_pequeno}>• Centro – Av. Aurora, 742</p>
@@ -45,7 +45,6 @@ const Home = () => {
                             <p className={styles.txt_pequeno}>• Sul – Av. Nova Esperança, 910</p>
                         </div>   
                     </section>
-                    <section id={styles.cardapio}></section>
                     <section></section>
                 </main>
             <Footer/>

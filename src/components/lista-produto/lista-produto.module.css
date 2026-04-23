@@ -1,0 +1,12 @@
+#container_lista{
+    background-color: var(--fundo-claro);
+}
+
+#btn_filtrar{
+    background-color: var(--laranja-destaque);
+    border: none;
+
+    padding: 5px 10px 5px 10px;
+    border-radius: 7px;
+
+}
