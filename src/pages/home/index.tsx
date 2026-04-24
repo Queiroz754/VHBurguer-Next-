@@ -9,7 +9,7 @@ const Home = () => {
                 <main id={`${styles.main} layout_guide`}>
                     <section className={styles.banner} id="banner">
                         <h1 id={styles.titulo_banner}>BEM-VINDO AO VH BURGUER</h1>
-                        <img src="../imgs/foto_de_hamburgueres.png" id={styles.img_banner} alt="um hambúrguer, alface, queijo, molho especial, cebola, picles, num pão com gergelim" />
+                        <img src="../imgs/foto_de_hamburgueres.png" id={styles.img_banner} alt="um hambúrguer, alface, queijo, molho especial, cebola, picles, num pão com gergelim"/>
                         <div id={styles.campo_button}>
                             <button id={styles.btn_atendente}>Chamar atendente</button>
                             <button id={styles.btn_cardapio}>Ver cardápio</button>
@@ -33,9 +33,12 @@ const Home = () => {
                             </div>
                         </div>
                     </section>
-                    <section className={styles.cardapio} id="cardapio">
+                     <section className={styles.cardapio} id="cardapio">
+                    <div className={`${styles.container_cardapio} layout_guide`}>
+                        <h2>Cardápio</h2>
                         <ListaProduto/>
-                    </section>
+                    </div>
+                </section>
                     <section className={styles.unidades} id="unidades">
                         <div className={styles.container_unidades}>
                             <p className={styles.txt_titulo_unidades}>NOSSAS UNIDADES</p>
