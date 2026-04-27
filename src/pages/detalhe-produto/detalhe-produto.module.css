@@ -1,5 +1,5 @@
 #main{
-    height: 80vh;
+    height: 120vh;
     background-color: var(--fundo-claro);
     display: flex;
     justify-content: center;
@@ -8,8 +8,8 @@
 
 #card_detalhe {
     background-color: white;
-    height: 70vh;
-    width: 80vw;
+    height: 100vh;
+    width: 75vw;
     display: flex;
     flex-direction: column;
     padding: 2.5vh 5vw;
@@ -22,7 +22,7 @@
     color: var(--laranja-destaque);
     font-size: 5rem;
     font-weight: 400;
-    margin-bottom:  2.5vh ;
+    margin:  2.5vh ;
     text-align: center;
 }
 

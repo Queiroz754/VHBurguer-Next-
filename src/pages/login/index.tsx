@@ -1,21 +1,38 @@
+import React, { useState } from "react";
 import  Styles  from "./login.module.css";
+import { login } from "../api/authService";
+
 
 // estrutura padrão
 const Login = () => {
+    const [email, setEmail] = useState<string>("");
+    const [senha, setSenha] = useState<string>("");
+
+    function autenticar(e: React.FormEvent<HTMLFormElement>){
+        e.preventDefault();
+        try{
+            login(email, senha);
+            console.log("allallalalal login")
+        }catch(e: any){
+            alert(e.message);
+        }
+    }
+    
     return (
         <>
             <main id={Styles.main}>
                 <img src="../imgs/hamburguer_Login.png" alt="Hambúrguer flutuando em camadas mostrando os ingredientes." />
                 <div id={Styles.campo_login}>
                     <h1 className={Styles.txtTituloLogin}>Login</h1>
-                    <form id={Styles.formulario}>
+                    <form id={Styles.formulario} onSubmit={autenticar}>
                         <div className={Styles.campo_form}>
                             <label htmlFor="email">E-mail</label>
-                            <input type="text" name="email" placeholder="email@exemplo.com" required/>
+                            <input type="text" name="email" placeholder="email@exemplo.com" required value={email} onChange={(e) => setEmail(e.target.value)}/>
                         </div>
                         <div className={Styles.campo_form}>
                             <label htmlFor="senha" className={Styles.txtLabelForms}>Senha</label>
-                            <input type="password" name="senha" placeholder="***********" required/>
+                            <input type="password" name="senha" placeholder="***********" required value={senha} onChange={(e) => setSenha(e.target.value)}/>
+                            
                         </div>
                         <a href="" id={Styles.esq_senha}>Esqueceu sua senha?</a>
                         <button id={Styles.fomulario_botao}>Entrar</button>

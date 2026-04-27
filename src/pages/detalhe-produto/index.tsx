@@ -20,7 +20,7 @@ const DetalheProduto = () => {
                     <aside id={styles.info_valor_categoria}>
                         <div id={styles.preco}>
                             <p className={styles.titulo}>Preço R$</p> 
-                            <p className={styles.conteudo}><p id={styles.preco_antigo}>R$45,00</p>R$35,00</p>   
+                            <p className={styles.conteudo}> R$45,00 R$35,00</p>   
                         </div>
                         <div id={styles.categoria}>
                             <p className={styles.titulo}>Categoria</p>
