@@ -1,0 +1,26 @@
+body{
+    background-color: var(--fundo-claro);
+}
+
+#main{
+    height: 170vh;
+    margin-top: 2.5%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#titulo_produto{
+    color: var(--laranja-destaque);
+
+    font-size: var(--tamanho-titulo);
+    font-weight: var(--weight-titulo);
+    text-align: center;
+}
+
+#form_produto{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 75%;
+}

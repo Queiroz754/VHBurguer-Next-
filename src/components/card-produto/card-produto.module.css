@@ -25,11 +25,10 @@
 
 
 #txt_descricao{
-    font-size: 13px;
+    font-size: 20px;
     margin: 0px;
     line-height: 1.4;
     height: 12vh;
-    align-items: center;
 
     text-overflow: ellipsis;
     white-space: nowrap;

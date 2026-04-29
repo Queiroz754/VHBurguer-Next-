@@ -1,25 +1,36 @@
 import React, { useState } from "react";
-import  Styles  from "./login.module.css";
+import Styles from "./login.module.css";
 import { login } from "../api/authService";
-
+import { useRouter } from "next/navigation";
+import { ToastContainer, toast } from "react-toastify";
 
 // estrutura padrão
 const Login = () => {
     const [email, setEmail] = useState<string>("");
     const [senha, setSenha] = useState<string>("");
 
-    function autenticar(e: React.FormEvent<HTMLFormElement>){
+    const router = useRouter();
+    const notificacao = (msg: string) => toast.success(msg);
+    const erro = (msg: string) => toast.error(msg);
+
+    async function autenticar(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
-        try{
-            login(email, senha);
-            console.log("allallalalal login")
-        }catch(e: any){
-            alert(e.message);
+        try {
+            await login(email, senha);
+            notificacao("Login bem-sucedido.")
+
+            setTimeout(() => {
+                router.push("/home");
+            },2000);
+        }
+        catch (error: any) {
+            erro("Login inválido.")
         }
     }
-    
+
     return (
         <>
+            <ToastContainer />
             <main id={Styles.main}>
                 <img src="../imgs/hamburguer_Login.png" alt="Hambúrguer flutuando em camadas mostrando os ingredientes." />
                 <div id={Styles.campo_login}>
@@ -27,12 +38,12 @@ const Login = () => {
                     <form id={Styles.formulario} onSubmit={autenticar}>
                         <div className={Styles.campo_form}>
                             <label htmlFor="email">E-mail</label>
-                            <input type="text" name="email" placeholder="email@exemplo.com" required value={email} onChange={(e) => setEmail(e.target.value)}/>
+                            <input type="text" name="email" placeholder="email@exemplo.com" required value={email} onChange={(e) => setEmail(e.target.value)} />
                         </div>
                         <div className={Styles.campo_form}>
                             <label htmlFor="senha" className={Styles.txtLabelForms}>Senha</label>
-                            <input type="password" name="senha" placeholder="***********" required value={senha} onChange={(e) => setSenha(e.target.value)}/>
-                            
+                            <input type="password" name="senha" placeholder="***********" required value={senha} onChange={(e) => setSenha(e.target.value)} />
+
                         </div>
                         <a href="" id={Styles.esq_senha}>Esqueceu sua senha?</a>
                         <button id={Styles.fomulario_botao}>Entrar</button>
