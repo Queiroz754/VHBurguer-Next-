@@ -25,6 +25,6 @@ export async function cadastrarProduto(dados: Produto){
         await api.post("Produto", formData);
 
     }catch(error: any){
-        throw new Error(error.message);
+        throw new Error(error.response.data);
     }
 }
