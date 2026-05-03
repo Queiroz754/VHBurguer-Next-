@@ -58,10 +58,10 @@ const Produto = () => {
                 <h1 id={styles.titulo_produto}>CRIAR PRODUTO</h1>
                 <form id={styles.form_produto} onSubmit={Cadastrar}>
                     <label htmlFor="nome">Nome do produto</label>
-                    <input type="text" name="nome" placeholder="BBQ Especial" id={styles.input_pequeno}
+                    <input type="text" name="nome" placeholder="BBQ Especial"
                         value={nome} onChange={(e) => setNome(e.target.value)} />
                     <label htmlFor="descricao">Descrição</label>
-                    <input type="text" name="descricao" placeholder="Hamburgu" id={styles.descricao}
+                    <input type="text" name="descricao" placeholder="Hamburgu"
                         value={descricao} onChange={(e) => setDescricao(e.target.value)} />
                     <label htmlFor="preco">Preço (R$)</label>
                     <input type="text" placeholder="40,00" name="preco"
@@ -76,14 +76,17 @@ const Produto = () => {
                         )
                         )}
                     </select>
+                    <div id={styles.campo_adicionar}>
+                        <a href="">Adicionar categoria</a>
+                    </div>
                     <label htmlFor="url">URL da imagem</label>
-                    <input type="file" placeholder="https://unsplash.com/pt-br/fotografias/cheseburger-de-" name="url"
+                    <input type="file" name="url" id="input_img_link" className={styles.input_img}
                         onChange={(e) => {
                             if (e.target.files && e.target.files[0]) {
                                 setImagem(e.target.files[0]);
                             }
                         }} />
-                    <button id={styles.adicionar}>Adicionar Promoção</button>
+                    <label htmlFor="input_img_link" id={styles.label_img}>https://VHburguer.com/pt-br/fotografias/cheseburg...</label>
                     <button id={styles.salvar}>Salvar</button>
                 </form>
             </main>

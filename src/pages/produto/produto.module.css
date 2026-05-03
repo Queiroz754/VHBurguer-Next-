@@ -1,26 +1,87 @@
-body{
-    background-color: var(--fundo-claro);
-}
-
-#main{
-    height: 170vh;
-    margin-top: 2.5%;
+#main {
+    height: 75vh;
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-direction: column;
 }
 
-#titulo_produto{
+#titulo_produto {
     color: var(--laranja-destaque);
-
     font-size: var(--tamanho-titulo);
     font-weight: var(--weight-titulo);
     text-align: center;
 }
 
-#form_produto{
+#form_produto {
     display: flex;
     flex-direction: column;
     gap: 8px;
     width: 75%;
+}
+
+#form_produto label {
+    font-size: var(--fonte-texto);
+    font-weight: 500;
+
+    margin-top: 20px;
+}
+
+#form_produto input,
+#form_produto textarea,
+#form_produto select,
+#label_img {
+    padding: 12px 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    outline: none;
+    font-size: 14px;
+    transition: 0.2s;
+
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    background: #fff;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+}
+
+#label_img{
+    opacity: 0.4;
+}
+
+#campo_adicionar{
+    display: flex;
+    justify-content: end;
+    margin-top: 5px;
+}
+
+#campo_adicionar a {
+    color: var(--vinho);
+    font-size: var(--fonte-texto);
+    font-weight: 500;
+}
+
+.input_img{
+    display: none;
+}
+
+#form_produto input:focus {
+    border-color: #ff8c00;
+}
+
+#salvar{
+    width: 50%;
+    height: 4vh;
+    align-self: center;
+    margin-top: 3vh;
+
+    padding: 12px;
+    border-radius: 6px;
+    border: none;
+    background-color: var(--laranja-destaque);
+
+    font-weight: 600;
+    font-size: 18px;
+    color: var(--vinho);
+
+    cursor: pointer;
+    transition: 0.2s;
 }

@@ -1,0 +1,25 @@
+#main{
+    background-color: var(--fundo-claro);
+    height: 75vh;
+    padding: 5vh 0;
+}
+
+#container_criar_produto{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#titulo_criar{
+    color: var(--laranja-destaque);
+    font-size: 70px;
+    font-weight: 400;
+    margin-bottom: 5vh;
+}
+
+#formulario{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    /* gap: 20px; */
+}

@@ -1,0 +1,12 @@
+#main{
+    height: 75vh;
+    width: 100%;
+    background-color: var(--fundo-claro);
+}
+
+#campo_promocoes{
+    display: flex;
+    justify-content: space-between;
+
+    width: 100%;
+}
