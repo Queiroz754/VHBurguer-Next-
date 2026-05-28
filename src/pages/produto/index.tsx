@@ -1,11 +1,15 @@
 import SubHeader from "@/components/sub-header/sub-header";
 import Footer from "@/components/footer/footer";
 import styles from "./produto.module.css"
-import { useEffect, useState } from "react";
+import { useEffect, useReducer, useState } from "react";
 import { listarCategoria } from "../api/categoriaService";
-import { cadastrarProduto } from "../api/produtoService";
+import { cadastrarProduto, editarProduto, listarPorId } from "../api/produtoService";
 import { erro, notificacao } from "@/utils/toast";
 import Toast from "@/components/toast/toast";
+import { useRouter } from "next/router";
+import { strict } from "assert";
+import { faL } from "@fortawesome/free-solid-svg-icons";
+import { verificarAutenticacao } from "@/utils/auth";
 
 interface Categoria {
     categoriaID: number,
@@ -20,14 +24,33 @@ const Produto = () => {
     const [descricao, setDescricao] = useState<string>("");
     const [preco, setPreco] = useState<string>("");
     const [imagem, setImagem] = useState<File | null>(null);
-    const [categoriasSelecionado, setcategoriasSelecionadas] = useState<number[]>([]);
+    const [categoriasSelecionadas, setcategoriasSelecionadas] = useState<number[]>([]);
+
+    const [estaAutenticado, setEstaAutenticado] = useState(false);
+    const router = useRouter();
+    const id = router.query.id;
+
+
+    let telaEditar = id ? true : false;
+
 
     async function listarCategoraiemProduto() {
         const lista = await listarCategoria();
         setCategorias(lista.data);
     }
 
-    async function Cadastrar(e: React.FormEvent<HTMLFormElement>) {
+    async function carregarInformacoes() {
+        if (!id) return;
+
+        const produto = await listarPorId(Number(id))
+
+        setNome(produto.nome);
+        setDescricao(produto.descricao);
+        setPreco(produto.preco);
+        setcategoriasSelecionadas(produto.categoriaIds);
+    }
+
+    async function salvarProduto(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
         try {
 
@@ -36,10 +59,17 @@ const Produto = () => {
                 descricao,
                 preco,
                 imagem,
-                categoriasId: categoriasSelecionado
+                categoriasId: categoriasSelecionadas,
             }
 
-            await cadastrarProduto(dados);
+            if (telaEditar) {
+                await editarProduto(Number(id), dados)
+                notificacao("Produto editado!")
+            } else {
+                await cadastrarProduto(dados)
+                notificacao("Produto cadastrado!")
+            }
+
             notificacao("Produto cadastrado com sucesso.");
         } catch (error: any) {
             erro(error.message);
@@ -47,16 +77,29 @@ const Produto = () => {
     }
 
     useEffect(() => {
-        listarCategoraiemProduto();
-    }, [])
+        if (!verificarAutenticacao()) {
+            router.push("/home")
+        } else {
+            setEstaAutenticado(true)
+            if (!router.isReady) return;
+
+            carregarInformacoes();
+
+            listarCategoraiemProduto();
+        }
+    }, [router.isReady, id])
+
+    if (!estaAutenticado) {
+        return null;
+    }
 
     return (
         <>
             <SubHeader />
             <Toast />
             <main id={styles.main}>
-                <h1 id={styles.titulo_produto}>CRIAR PRODUTO</h1>
-                <form id={styles.form_produto} onSubmit={Cadastrar}>
+                <h1 id={styles.titulo_produto}>{telaEditar ? "Editar produto" : "Criar produto"}</h1>
+                <form id={styles.form_produto} onSubmit={salvarProduto}>
                     <label htmlFor="nome">Nome do produto</label>
                     <input type="text" name="nome" placeholder="BBQ Especial"
                         value={nome} onChange={(e) => setNome(e.target.value)} />
@@ -67,10 +110,13 @@ const Produto = () => {
                     <input type="text" placeholder="40,00" name="preco"
                         value={preco} onChange={(e) => setPreco(e.target.value)} />
                     <label htmlFor="categoria">Categoria</label>
-                    <select name="categoria" multiple onChange={(e) => setcategoriasSelecionadas(
-                        Array.from(e.target.selectedOptions).map((option) => Number(option.
-                            value))
-                    )}>
+                    <select name="categoria"
+                        multiple
+                        value={categoriasSelecionadas.map(String)}
+                        onChange={(e) => setcategoriasSelecionadas(
+                            Array.from(e.target.selectedOptions).map((option) => Number(option.
+                                value))
+                        )}>
                         {categorias.map((item) => (
                             <option value={item.categoriaID} key={item.categoriaID}>{item.nome}</option>
                         )

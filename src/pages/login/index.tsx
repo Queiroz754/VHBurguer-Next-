@@ -29,7 +29,6 @@ const Login = () => {
 
     return (
         <>
-            <ToastContainer />
             <main id={Styles.main}>
                 <img src="../imgs/hamburguer_Login.png" 
                 alt="Hambúrguer flutuando em camadas mostrando os ingredientes." />

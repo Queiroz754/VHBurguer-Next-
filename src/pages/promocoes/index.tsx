@@ -9,7 +9,7 @@ const Promocoes = () => {
             <SubHeader />
             <Toast />
             <main id={styles.main}>
-                <section id={`layout_guide`}>
+                <section id={`${styles.container_promocoes} layout_guide`}>
                     <div id={styles.campo_promocoes}>
                         <p id={styles.titulo_promocoes}>Todas as promoções</p>
                         <button>Criar promoção</button>

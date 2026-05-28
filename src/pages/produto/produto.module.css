@@ -1,5 +1,5 @@
 #main {
-    height: 75vh;
+    height: 90vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -73,7 +73,6 @@
     align-self: center;
     margin-top: 3vh;
 
-    padding: 12px;
     border-radius: 6px;
     border: none;
     background-color: var(--laranja-destaque);

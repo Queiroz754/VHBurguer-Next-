@@ -21,7 +21,7 @@ const CriarProduto = () => {
                             <a href="">Adicionar categoria</a>
                         </div>
                         <label htmlFor="nome">URL da imagem</label>
-                        <input type="text" placeholder="https://unsplash.com/pt-br/fotografias/cheseburger-de-" id={styles.imagem} name="imagem" />
+                        <input type="text" placeholder="Insira sua imagem" id={styles.imagem} name="imagem" />
                         <button id={styles.botao}>Salvar</button>
                     </form>
                 </section>
